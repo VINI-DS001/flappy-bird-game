@@ -1,5 +1,28 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
+
+char bird[2][6] = { {'/','-','-','o','\\','\n'}, {'|','_','_','_',' ','>'} };
+
+
+void drawBird(){
+    int i, j;
+    for (i = 0; i < 2; i++){
+        for (j = 0; j < 6; j++){
+            printf("%c", bird[i][j]);
+        }
+    }
+}
+
+void play()
+{
+
+    system("cls");
+    
+    drawBird();
+    
+}
+
 
 void instructions(){
     system("cls");
@@ -11,8 +34,9 @@ void instructions(){
 }
 
 int main(){
+	srand((unsigned)time(NULL));
 
-    do{
+    
         system("cls");
         printf(" -------------------------- \n");
         printf(" |*******Flappy Bird******| \n");
@@ -22,13 +46,15 @@ int main(){
         printf("3. Exit\n");
         printf("Select an option: ");
         char op = getche();
-
-        if (op == '2'){
+        
+		if(op == '1'){
+			play();
+		}
+        else if(op == '2'){
         	instructions();
 		}
         else if(op == '3')exit(0);
 
-    } while (1);
 
     return 0;
 }
